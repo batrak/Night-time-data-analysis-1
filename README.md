@@ -1,8 +1,6 @@
 # Nighttime-Data-Analysis
 
-
-##India's Nighttime Spatial Analysis (State-wise)
-
+#India's Nighttime Spatial Analysis (State-wise)
 
 
 VIIRS Nighttime data obtained from: https://ngdc.noaa.gov/eog/viirs/download_dnb_composites.html (2017 monthly data, June month, Tile3_75N060E)
@@ -255,6 +253,5 @@ library(sp)
             mode = "markers", 
             color = TNL,colors="PuOr")  %>% 
             layout(title="Total Nighttime Light vs. Population", showlegend = F)
-
 
 ```
