@@ -217,7 +217,7 @@ for(i in skt){
   ggplotly()  %>% layout(xaxis=x, yaxis=y)
   
 ```
-![unnamed-chunk-5-1](https://user-images.githubusercontent.com/31407895/29908693-30204be8-8e40-11e7-9858-20a9b7870d93.png)
+![unnamed-chunk-5-1](https://user-images.githubusercontent.com/31407895/29908893-0f9c54f6-8e41-11e7-8ede-7f7ba8e179b9.png)
 
 We now have a scatter plot of Total Nighttime Light and Population to see the underlying correlation between the two. 
 For this, extracted GEOIDs and average radiance data frame extracted is merged with the population data frame and then plotted. 
