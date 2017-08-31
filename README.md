@@ -255,3 +255,4 @@ library(sp)
             layout(title="Total Nighttime Light vs. Population", showlegend = F)
 
 ```
+![scatter](https://user-images.githubusercontent.com/31407895/29911903-5684281a-8e4d-11e7-8bbb-9641a5e4db37.png)
