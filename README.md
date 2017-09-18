@@ -258,7 +258,7 @@ library(sp)
 
 ![pop density](https://user-images.githubusercontent.com/31407895/30536957-86ff1194-9c85-11e7-84af-ef8bde29de22.png)
 
-![stategdp scatter](https://user-images.githubusercontent.com/31407895/30537866-107895d2-9c89-11e7-9b7c-cfa281ddec76.png)
+![states gdp scatter](https://user-images.githubusercontent.com/31407895/30540426-c8382448-9c94-11e7-81e4-41487ae58969.png)
 
 
 
