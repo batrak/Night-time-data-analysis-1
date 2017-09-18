@@ -219,7 +219,7 @@ for(i in skt){
 
 We now have a scatter plot of Total Nighttime Light and Population to see the underlying correlation between the two. 
 For this, extracted GEOIDs and average radiance data frame extracted is merged with the population data frame and then plotted. 
-Based on the plot, there exists a positive correlation between the two parameters. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively.
+Based on the plot, there exists a positive correlation between the two parameters. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively. For State GDP, 2013 figures are taken at Constant Prices(2004-05) from MOSPI.
 ```{r}
 library(sp)
   registerDoParallel(cores=2)
@@ -257,5 +257,8 @@ library(sp)
 ![scatter](https://user-images.githubusercontent.com/31407895/29911903-5684281a-8e4d-11e7-8bbb-9641a5e4db37.png)
 
 ![pop density](https://user-images.githubusercontent.com/31407895/30536957-86ff1194-9c85-11e7-84af-ef8bde29de22.png)
+
+![stategdp scatter](https://user-images.githubusercontent.com/31407895/30537866-107895d2-9c89-11e7-9b7c-cfa281ddec76.png)
+
 
 
