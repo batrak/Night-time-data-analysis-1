@@ -215,12 +215,11 @@ for(i in skt){
   ggplotly()  %>% layout(xaxis=x, yaxis=y)
   
 ```
-![unnamed-chunk-5-1](https://user-images.githubusercontent.com/31407895/29908893-0f9c54f6-8e41-11e7-8ede-7f7ba8e179b9.png)
+![state histo](https://user-images.githubusercontent.com/31407895/30535859-550357f8-9c81-11e7-86a9-c6e9f3a194f8.PNG)
 
 We now have a scatter plot of Total Nighttime Light and Population to see the underlying correlation between the two. 
 For this, extracted GEOIDs and average radiance data frame extracted is merged with the population data frame and then plotted. 
-Based on the plot, there exists a positive correlation between the two parameters. 
-
+Based on the plot, there exists a positive correlation between the two parameters. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively.
 ```{r}
 library(sp)
   registerDoParallel(cores=2)
@@ -256,3 +255,7 @@ library(sp)
 
 ```
 ![scatter](https://user-images.githubusercontent.com/31407895/29911903-5684281a-8e4d-11e7-8bbb-9641a5e4db37.png)
+
+![pop density](https://user-images.githubusercontent.com/31407895/30536957-86ff1194-9c85-11e7-84af-ef8bde29de22.png)
+
+
