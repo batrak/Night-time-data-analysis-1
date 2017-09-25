@@ -219,7 +219,7 @@ for(i in skt){
 
 We now have a scatter plot of Total Nighttime Light and Population to see the underlying correlation between the two. 
 For this, extracted GEOIDs and average radiance data frame extracted is merged with the population data frame and then plotted. 
-Based on the plot, there exists a positive correlation between the two parameters. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively. For State GDP, 2013 figures are taken at Constant Prices(2004-05) from MOSPI.
+Based on the plot, there exists a positive correlation between the two parameters. The same is reflected through the regression line plotted through Loess smooth. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively. For State GDP, 2013 figures are taken at Constant Prices(2004-05) from MOSPI.
 ```{r}
 library(sp)
   registerDoParallel(cores=2)
@@ -242,23 +242,35 @@ library(sp)
     aTNL<-log(joined$TNL)
     bPop<- log(joined$Population)
     cState<-joined$State
-    
+    m2<-lm(bPop~aTNL)
     joinedfd<-cbind(joined,aTNL,bPop,cState)
     attach(joinedfd)
-    plot_ly(joinedfd, 
-            x = aTNL,
-            y = bPop, 
-            text = paste("State: ",cState),
-            mode = "markers", 
-            color = TNL,colors="PuOr")  %>% 
-            layout(title="Total Nighttime Light vs. Population", showlegend = F)
-
+    
+   t <- list(
+  family = "sans serif",
+  size = 9,
+  color = toRGB("grey50"))
+    
+         p<-plot_ly(joined1, 
+            x = TNL,
+            y = Density, 
+            text = ~State,
+             mode = "markers+text",    marker = list(size = 3),
+            color = TNL,colors="PuOr") %>%
+      add_markers()  %>%
+        add_lines(y = fitted(loess(m1)),
+            line = list(color = '#07A4B5'),
+           # text="GDP=(4.672e+04)+(2.316e-01)*TNL",
+            name = "Loess Smoother", showlegend = T) %>%
+  add_text(textfont = t, textposition = "bottom right") %>%
+            layout(title="Total Nighttime Light vs.Population Density ",xaxis = list(title = 'TNL'),
+         yaxis = list(title = 'Population Density'), showlegend = F)
+      
+   p
+      
 ```
-![scatter](https://user-images.githubusercontent.com/31407895/29911903-5684281a-8e4d-11e7-8bbb-9641a5e4db37.png)
-
-![pop density](https://user-images.githubusercontent.com/31407895/30536957-86ff1194-9c85-11e7-84af-ef8bde29de22.png)
-
-![states gdp scatter](https://user-images.githubusercontent.com/31407895/30540426-c8382448-9c94-11e7-81e4-41487ae58969.png)
-
+![tnl pop log viirs](https://user-images.githubusercontent.com/31407895/30795952-a2835d54-a1ed-11e7-9428-f03dc5abab20.png)
+![tnl pop density log viirs](https://user-images.githubusercontent.com/31407895/30795979-c36803bc-a1ed-11e7-8d99-e1aa10166306.png)
+![tnl gdsp log viirs](https://user-images.githubusercontent.com/31407895/30795984-ca20a0ce-a1ed-11e7-85e9-f2e343981774.png)
 
 
