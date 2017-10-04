@@ -282,7 +282,6 @@ library(sp)
 |log(Population)| 3.54638**|1.06875***|
 |log(Population Density)|6.5620**| -0.0632|
 
-[ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1]
-
+( Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1)
 
 
