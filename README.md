@@ -217,6 +217,14 @@ for(i in skt){
 ```
 ![state histo](https://user-images.githubusercontent.com/31407895/30535859-550357f8-9c81-11e7-86a9-c6e9f3a194f8.PNG)
 
+|Average Radiance Summary Statistics|Radiance Value|
+|-----------------------------------|--------------|
+|Minimum  |	-0.5285|
+|Mean    	| 0.359|
+|Median   |	0.4697|
+|Maximum	 | 866.798|
+|Standard Error| 0.00097|
+
 We now have a scatter plot of Total Nighttime Light and Population to see the underlying correlation between the two. 
 For this, extracted GEOIDs and average radiance data frame extracted is merged with the population data frame and then plotted. 
 Based on the plot, there exists a positive correlation between the two parameters. The same is reflected through the regression line plotted through Loess smooth. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively. For State GDP, 2013 figures are taken at Constant Prices(2004-05) from MOSPI.
