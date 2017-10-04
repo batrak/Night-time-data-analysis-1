@@ -83,13 +83,7 @@ for(i in 1:length(states)){
   rm(combined)
 }
 ```
-
-![unnamed-chunk-2-6](https://user-images.githubusercontent.com/31407895/29908497-51623cea-8e3f-11e7-8a85-2e4c3ba4fcb2.png)
-![unnamed-chunk-2-5](https://user-images.githubusercontent.com/31407895/29908500-5177a77e-8e3f-11e7-89d7-eee879d3d5cc.png)
-![unnamed-chunk-2-4](https://user-images.githubusercontent.com/31407895/29908501-517db812-8e3f-11e7-9c88-aadfe32e20ac.png)
-![unnamed-chunk-2-3](https://user-images.githubusercontent.com/31407895/29908498-516adbac-8e3f-11e7-935b-a67e24114ad4.png)
-![unnamed-chunk-2-2](https://user-images.githubusercontent.com/31407895/29908499-516f36e8-8e3f-11e7-9a78-98f183d1a43e.png)
-![unnamed-chunk-2-1](https://user-images.githubusercontent.com/31407895/29908503-51c8ecc4-8e3f-11e7-8fb9-a822e2874095.png)
+![viirs state 1](https://user-images.githubusercontent.com/31407895/31171700-4977c2b2-a91e-11e7-8daa-5829328dc6c5.PNG)
 
 For inter-state comparisons, now the entire raster is the sample size from which clusters are identified. Now, these clusters are sorted by radiance. Post this, individual spatial bound boxes for each state are made and plotted. 
 
@@ -125,12 +119,7 @@ for(i in 1:length(states)){
 }
 
 ```
-![unnamed-chunk-3-6](https://user-images.githubusercontent.com/31407895/29908560-987de372-8e3f-11e7-880e-879a1f1cceaf.png)
-![unnamed-chunk-3-5](https://user-images.githubusercontent.com/31407895/29908561-98a854a4-8e3f-11e7-81c2-d0c70bf85a2a.png)
-![unnamed-chunk-3-4](https://user-images.githubusercontent.com/31407895/29908562-98aef700-8e3f-11e7-93ec-161253164d7a.png)
-![unnamed-chunk-3-3](https://user-images.githubusercontent.com/31407895/29908563-99069e4c-8e3f-11e7-9a05-6127396d04cb.png)
-![unnamed-chunk-3-2](https://user-images.githubusercontent.com/31407895/29908565-99431994-8e3f-11e7-8a8e-3f3d8469adf6.png)
-![unnamed-chunk-3-1](https://user-images.githubusercontent.com/31407895/29908564-993e6db8-8e3f-11e7-8b09-e8492a0640b8.png)
+![states viirs2](https://user-images.githubusercontent.com/31407895/31171718-5c9e21f6-a91e-11e7-956e-0d704722a093.PNG)
 
 For statistical comparison, we extract radiance values of all states' geoshapes through a new function, masq.
 ```{r}
