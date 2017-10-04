@@ -270,4 +270,19 @@ library(sp)
 ![tnl pop density log viirs](https://user-images.githubusercontent.com/31407895/30795979-c36803bc-a1ed-11e7-8d99-e1aa10166306.png)
 ![tnl gdsp log viirs](https://user-images.githubusercontent.com/31407895/30795984-ca20a0ce-a1ed-11e7-85e9-f2e343981774.png)
 
+|Dependant Variable|Intercept|Independant Variable(TNL)|
+|------------------|---------|------------------|
+|GDP 2013|2.078e+04| 3.901e-01***|
+|Population|-634674.02| 102.04***|
+|Population Density|1.279e+03*| -9.428e-04|
+
+|Dependant Variable|Intercept|Independant Variable(log(TNL))|
+|------------------|---------|------------------|
+|log(GDP 2013)|  0.74509 | 0.86646***|
+|log(Population)| 3.54638**|1.06875***|
+|log(Population Density)|6.5620**| -0.0632|
+
+[ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1]
+
+
 
