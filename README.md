@@ -214,11 +214,13 @@ for(i in skt){
 |Maximum	 | 866.798|
 |Standard Error| 0.00097|
 
+
+
 The summary statistics clearly indicate the variance of the data collected. The VIIRS data is inclusive and sensitive to the Day/Night Band (DNB) which is panchromatic, sensitive to visible and near-infrared (NIR) wavelengths ranging from daylight down to the low levels of radiation observed at night.  When the DNB radiances are calculated during the production of the SDR files, the clear-sky offsets are subtracted, which may result in negative radiance values being reported. These values are kept in the SDR files (i.e. not replaced with SOUB fill) even though negative radiances are physically impossible because some physical features visible in DNB imagery would be lost if the negative values were excluded by the user. (See NOAA Techincal Report, VIIRS Imagery EDR User's Guide, 2013). [[http://rammb.cira.colostate.edu/projects/npp/VIIRS_Imagery_EDR_Users_Guide.pdf](url)]
 
 We now have a scatter plot of Total Nighttime Light and Population to see the underlying correlation between the two. 
 For this, extracted GEOIDs and average radiance data frame extracted is merged with the population data frame and then plotted. 
-Based on the plot, there exists a positive correlation between the two parameters. The same is reflected through the regression line plotted: both linear and Loess smooth. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively. For State GDP, 2013 figures are taken at Constant Prices(2004-05) from MOSPI. Due to the large dynamic range of the DNB, a logarithmic scaling is done on the radiance values used in the RCFC to transform the individual pixel radiances from nW to log-scaled radiance (LSR) values starting from 0. (See Elvidge et al.,2017) [[http://www.tandfonline.com/doi/full/10.1080/01431161.2017.1342050](url)]
+Based on the plot, there exists a positive correlation between the two parameters. The same is reflected through the regression line plotted: both linear and Loess smooth. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively. For State GDP, 2013 figures are taken at Constant Prices(2004-05) from MOSPI. Due to the large dynamic range of the DNB, a logarithmic scaling is done on the radiance values used in the RCFC to transform the individual pixel radiances from nW to log-scaled radiance (LSR) values starting from 0. A log-log model does not change the underlying relationships but adds to the explanatory power of the regression through a higher R-square value of each model. (See Elvidge et al.,2017) [[http://www.tandfonline.com/doi/full/10.1080/01431161.2017.1342050](url)]
 
 ```{r}
 library(sp)
@@ -269,9 +271,10 @@ library(sp)
    p
       
 ```
-![tnl pop log viirs](https://user-images.githubusercontent.com/31407895/30795952-a2835d54-a1ed-11e7-9428-f03dc5abab20.png)
-![tnl pop density log viirs](https://user-images.githubusercontent.com/31407895/30795979-c36803bc-a1ed-11e7-8d99-e1aa10166306.png)
-![tnl gdsp log viirs](https://user-images.githubusercontent.com/31407895/30795984-ca20a0ce-a1ed-11e7-85e9-f2e343981774.png)
+![tnl gdp lin loess log](https://user-images.githubusercontent.com/31407895/31211155-82299752-a9b4-11e7-87a1-818368239a56.png)
+![tnl pop lin loess log](https://user-images.githubusercontent.com/31407895/31211164-93343516-a9b4-11e7-8ef4-04f79b08adf1.png)
+![tnl den lin loess log](https://user-images.githubusercontent.com/31407895/31211189-c34379ce-a9b4-11e7-9504-a1316d965b06.png)
+
 
 |Dependant Variable|Intercept|Independant Variable(TNL)|
 |------------------|---------|------------------|
