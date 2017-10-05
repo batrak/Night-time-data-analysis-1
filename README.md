@@ -214,9 +214,12 @@ for(i in skt){
 |Maximum	 | 866.798|
 |Standard Error| 0.00097|
 
+The summary statistics clearly indicate the variance of the data collected. The VIIRS data is inclusive and sensitive to the Day/Night Band (DNB) which is panchromatic, sensitive to visible and near-infrared (NIR) wavelengths ranging from daylight down to the low levels of radiation observed at night.  When the DNB radiances are calculated during the production of the SDR files, the clear-sky offsets are subtracted, which may result in negative radiance values being reported. These values are kept in the SDR files (i.e. not replaced with SOUB fill) even though negative radiances are physically impossible because some physical features visible in DNB imagery would be lost if the negative values were excluded by the user. (See NOAA Techincal Report, VIIRS Imagery EDR User's Guide, 2013). [[http://rammb.cira.colostate.edu/projects/npp/VIIRS_Imagery_EDR_Users_Guide.pdf](url)]
+
 We now have a scatter plot of Total Nighttime Light and Population to see the underlying correlation between the two. 
 For this, extracted GEOIDs and average radiance data frame extracted is merged with the population data frame and then plotted. 
-Based on the plot, there exists a positive correlation between the two parameters. The same is reflected through the regression line plotted through Loess smooth. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively. For State GDP, 2013 figures are taken at Constant Prices(2004-05) from MOSPI.
+Based on the plot, there exists a positive correlation between the two parameters. The same is reflected through the regression line plotted: both linear and Loess smooth. The Total Nighttime Light is the sum of all the average radiance values of each pixel of the state. The procedure is then used to plot Total Nighttime Light and Population Density and State GDP, respectively. For State GDP, 2013 figures are taken at Constant Prices(2004-05) from MOSPI. Due to the large dynamic range of the DNB, a logarithmic scaling is done on the radiance values used in the RCFC to transform the individual pixel radiances from nW to log-scaled radiance (LSR) values starting from 0. (See Elvidge et al.,2017) [[http://www.tandfonline.com/doi/full/10.1080/01431161.2017.1342050](url)]
+
 ```{r}
 library(sp)
   registerDoParallel(cores=2)
