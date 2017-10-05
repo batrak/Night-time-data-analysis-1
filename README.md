@@ -1,4 +1,4 @@
-# Nighttime-Data-Analysis
+# VIIRS Night-time State-wise Analysis
 
 #India's Nighttime Spatial Analysis (State-wise)
 
