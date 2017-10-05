@@ -52,7 +52,7 @@ pop$NAME <- as.character(pop$State)
 Now, after selecting the states to be compared, we geocode the states and create their spatial bounding box. This is then extended via longitude and latitide to include a greater statespatial box and cropped from the raster tile. This cropped raster formes the sample size within which we first identify clusters of 15 and create a separate  data frame which we can then plot. 
 ```{r}
 states<- c("Maharashtra,Mh","Bihar,Bi","Gujarat,Gu","West Bengal,WB","Kerala,Kr","Madhya Pradesh,MP")
-par(mai=c(0,0,0,0),mfrow = c(1,1),bg='#001a4d', bty='n')
+par(mai=c(0,0,0,0),mfrow = c(3,3),bg='#001a4d', bty='n')
 
 coords <- data.frame() ##place holder
 
@@ -89,7 +89,7 @@ For inter-state comparisons, now the entire raster is the sample size from which
 
 ```{r}
 
-par(mai=c(0,0,0,0),mfrow = c(1,1),bg='#001a4d', bty='n')
+par(mai=c(0,0,0,0),mfrow = c(3,3),bg='#001a4d', bty='n')
 
 #Run clustering
 set.seed(123) #set seed for reproducibility
@@ -253,20 +253,23 @@ library(sp)
   size = 9,
   color = toRGB("grey50"))
     
-         p<-plot_ly(joined1, 
-            x = TNL,
-            y = Density, 
-            text = ~State,
-             mode = "markers+text",    marker = list(size = 3),
-            color = TNL,colors="PuOr") %>%
+         p<-plot_ly(data=joinedfd, 
+            x = aTNL,
+            y = bPop, 
+            text = ~cState,
+             mode = "markers", marker = list(size =3),
+            showlegend = F) %>%
       add_markers()  %>%
-        add_lines(y = fitted(loess(m1)),
+        add_lines(y = fitted(loess(m2)),
             line = list(color = '#07A4B5'),
-           # text="GDP=(4.672e+04)+(2.316e-01)*TNL",
-            name = "Loess Smoother", showlegend = T) %>%
-  add_text(textfont = t, textposition = "bottom right") %>%
-            layout(title="Total Nighttime Light vs.Population Density ",xaxis = list(title = 'TNL'),
-         yaxis = list(title = 'Population Density'), showlegend = F)
+            name="LoessSmooth", showlegend = T) %>%
+           add_lines(y = fitted(m2),
+            line = list(color = 'green'),
+            name="linear", showlegend = T) %>%
+  add_text(textfont = t, textposition = "bottom right",showlegend = F) %>%
+                                                                                  
+            layout(title="Total Nighttime Light vs. GDP ",xaxis = list(title = 'log(TNL)'),
+         yaxis = list(title = 'log(GDP )'), showlegend = T)
       
    p
       
