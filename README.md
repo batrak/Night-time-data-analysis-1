@@ -19,6 +19,7 @@ library(ggmap)
 library(plotly)
 library(ggplot2)
 library(devtools)
+library(reshape2)
 getwd()
 setwd("C:/Users/admin1/Desktop/imagery")
 
@@ -157,7 +158,7 @@ Average radiances are extracted from the raster and shape files for the states a
 ```{r}
  
 
-skt<-c(5,11,17,19,20,36)
+skt<-c(1:36)
 
   radiances <- data.frame() 
  
@@ -182,9 +183,10 @@ for(i in skt){
 }
 
 #Use ggplot to create histograms by States.
-  ggplot(radiances, aes(x=log(avg_rad))) +
-    geom_histogram(position="identity", alpha=0.6) +
-    facet_grid(. ~ loc)
+ p<- ggplot(radiances, aes(x=log(avg_rad))) +
+    geom_histogram(position="identity", alpha=0.6)
+    
+    p+facet_wrap( ~ loc, scales="free_y")
 
 #Remove all axes labels for style
     x <- list(
@@ -204,7 +206,7 @@ for(i in skt){
   ggplotly()  %>% layout(xaxis=x, yaxis=y)
   
 ```
-![state histo](https://user-images.githubusercontent.com/31407895/30535859-550357f8-9c81-11e7-86a9-c6e9f3a194f8.PNG)
+![all state viirs histo](https://user-images.githubusercontent.com/31407895/31532560-a5d39448-b00b-11e7-9661-58254cba8eda.png)
 
 |Average Radiance Summary Statistics|Radiance Value|
 |-----------------------------------|--------------|
